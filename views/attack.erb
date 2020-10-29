@@ -1,0 +1,42 @@
+<style>
+  .center {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+  }
+</style>
+
+<div class="center">
+
+  <h1 style="text-align:center">
+
+    <!-- Player One -->
+    <% if @target == "p1"%>
+      <%= @game.player_2.name%> attacked <%= @game.player_1.name %>
+
+    <!-- Player Two -->
+    <% elsif @target == "p2" %>
+      <%= @game.player_1.name%> attacked <%= @game.player_2.name %>
+
+    <!-- No Target -->
+    <% else %>
+      No Target
+    <% end %>
+
+  </h1>
+
+  <!-- Display Damage -->
+  <h2 style="text-align:center"> <%=@amount %> DMG</h2>
+
+  <form action="/play" style="text-align:center">
+    <input type="submit" value="Return To Game">
+  </form>
+</div>
