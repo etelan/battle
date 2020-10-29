@@ -31,4 +31,17 @@ feature 'Attack Button' do
 
   end
 
+  scenario 'Critical!' do
+
+    srand(6)
+
+    sign_in_and_play
+
+    click_button 'Attack Player Two'
+
+    expect(page).to have_content 'Critical!'
+    expect(page).to have_content '10 + 4'
+
+  end
+
 end

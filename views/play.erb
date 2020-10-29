@@ -68,11 +68,11 @@
         <% if @game.turn_controller.whos_turn? == 'p1'%>
           <form action="/attack" disabled>
             <input type="hidden" name="target" value="p2"/>
-            <input type="submit" value="Attack Player Two" >
+            <input type="submit" style="padding: 18px 22px; font-size:24px" value="Attack Player Two" >
           </form>
           <form action="/heal" disabled>
             <input type="hidden" name="target" value="p1"/>
-            <input type="submit" value="Heal Player One" >
+            <input type="submit" style="padding: 18px 30px; font-size:24px" value="Heal Player One" >
           </form>
         <% end %>
     </div>
@@ -91,12 +91,12 @@
         <% if @game.turn_controller.whos_turn? == 'p2'%>
           <form action="/attack">
             <input type="hidden" name="target" value="p1"/>
-            <input type="submit" value="Attack Player One" >
+            <input type="submit" style="padding: 18px 22px; font-size:24px" value="Attack Player One" >
           </form>
 
           <form action="/heal" disabled>
             <input type="hidden" name="target" value="p2"/>
-            <input type="submit" value="Heal Player Two" >
+            <input type="submit" style="padding: 18px 30px; font-size:24px" value="Heal Player Two" >
           </form>
         <% end %>
     </div>

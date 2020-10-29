@@ -11,7 +11,7 @@ feature 'Heal Button' do
 
     click_button 'Heal Player Two'
 
-    expect(page).to have_content 'Goliath healed by 10'
+    expect(page).to have_content 'Goliath healed by 6'
 
   end
 

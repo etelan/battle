@@ -39,10 +39,12 @@ class Battle < Sinatra::Base
     @target = params[:target]
     @game = @@game
 
+    player = @game.target_calculator(@target)
+
     # Calculate before, after, change. And attack.
-    @before = (@game.target_calculator(@target)).hit_points
-    @game.attack(@game.target_calculator(@target))
-    @after = (@game.target_calculator(@target)).hit_points
+    @before = (player).hit_points
+    @game.attack(player)
+    @after = (player.hit_points)
     @amount = @before - @after
 
     erb :attack

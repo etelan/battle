@@ -8,7 +8,7 @@ feature 'Results' do
     sign_in_and_play
 
     # Get Them Low
-    (1..8).each do
+    (1..10).each do
       click_button 'Attack Player Two'
       click_button 'Return To Game'
       click_button 'Attack Player One'

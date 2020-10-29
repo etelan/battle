@@ -1,28 +1,131 @@
+<style>
+  /* Split the screen in half */
+  .split {
+    /* Full height, half width, never moves no matter the scroll */
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    overflow-x: hidden;
+
+    /* If z-index is greater, then it'll be in front. */
+    z-index: -1;
+
+    /* Start at the top, pad a little bit */
+    top: 0;
+    padding-top: 20px;
+  }
+
+  .spaces {
+    white-space: pre;
+  }
+
+  .left {
+    /* Sets left margain to 0, and sets colour */
+    left: 0;
+  }
+
+  .right {
+    /* Sets right margain to 0, and sets colour */
+    right: 0;
+  }
+
+  .centered {
+
+    /* Gets pos of middle of the screen, no matter the size or scroll. */
+    position: absolute;
+
+    /* Set Margain */
+    top: 50%;
+    left: 50%;
+
+    /* This moves the objects */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .off_centered {
+
+    /* Gets pos of middle of the screen, no matter the size or scroll. */
+    position: absolute;
+
+    /* Set Margain */
+    top: 35%;
+    left: 50%;
+
+    /* This moves the objects */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .gray {
+    background-color: #C0C0C0
+  }
+
+  .red {
+    background-color: #ff6961
+  }
+
+  .blue {
+    background-color: #99badd
+  }
+
+  .cyan {
+    background-color: #007a7a
+  }
+
+  .submissionfield { width: 200; height: 50px; padding: 5px; font-size: 18px;}
+
+</style>
+
 <!-- Titles -->
-<div>
+<div style="z-index: 0; position:absolute; background-color:red;">
+
+</div>
+
+
+
+<!-- Split left side -->
+<div class="split right red">
+</div>
+<!-- Split right side -->
+<div class="split left blue">
+</div>
+
+<!-- Title -->
+<div class="off_centered cyan" style="padding:20px;">
   <h1> Battle! <h1>
   <h2> Enter your fighters </h2>
 </div>
 
-<!-- Form Section -->
-<div style='border: 3px red solid'>
+<!-- Center down the page -->
+<div class="centered">
 
+  <!-- Start our Form -->
   <form action="/names" method="post">
 
-    <!-- Player One -->
-    <label for="player_1_name">
-      Player 1 Name
-      <input type="text" name="player_1_name">
-    </label>
+    <!-- Inline Buttons -->
+    <span style="display:inline;">
+      <!-- Buttons and labels -->
+      <input type="text" class="gray submissionfield" size=30 maxlength=29 name="player_1_name">
 
-    <!-- Player Two -->
-    <label for="player_2_name">
-      Player 2 Name
-      <input type="text" name="player_2_name">
-    </label>
+      <!-- Inline Spacer -->
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <!-- Submit Button -->
-    <input type="submit" value="Submit">
-    
+      <!-- Buttons and labels -->
+      <input type="text" class="gray submissionfield" size=30 maxlength=29 name="player_2_name">
+    </span>
+
+    <!-- Spacer -->
+    <div>
+      &nbsp;
+    </div>
+
+    <!-- Submit -->
+    <div>
+      <input type="submit" value="Enter" style="padding: 9px 11px; font-size:18px">
+    </div>
+
+
   </form>
+
 </div>

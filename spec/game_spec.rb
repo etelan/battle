@@ -1,4 +1,5 @@
 require 'game'
+require 'player'
 
 describe Game do
 
@@ -9,8 +10,9 @@ describe Game do
 
   describe '#attack' do
     it 'damages the player specified' do
-      expect(player_2).to receive(:hit_points)
+      expect(player_2).to receive(:hit_points).and_return(DEFAULT_HIT_POINTS)
       expect(player_2).to receive(:receive_damage)
+      expect(player_2).to receive(:calculate_damage)
       game.attack(player_2)
     end
   end
@@ -18,8 +20,9 @@ describe Game do
   describe '#who_turn?' do
     it 'returns whos turn it is' do
 
-      expect(player_2).to receive(:hit_points)
+      expect(player_2).to receive(:hit_points).and_return(DEFAULT_HIT_POINTS)
       expect(player_2).to receive(:receive_damage)
+      expect(player_2).to receive(:calculate_damage)
       game.attack(player_2)
       expect(game.turn_controller.whos_turn?).to eq 'p2'
     end

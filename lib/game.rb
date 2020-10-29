@@ -2,6 +2,7 @@ require_relative './turn'
 
 class Game
 
+
   attr_reader :turn_controller, :end
 
   def initialize(p1, p2, turn_class = Turn)
@@ -10,7 +11,7 @@ class Game
     @end = false
   end
 
-
+  # Based on the websites parameters, return the player.
   def target_calculator(target)
     if target == "p1"
       player_1
@@ -19,11 +20,11 @@ class Game
     end
   end
 
+  # Attack the player given
   def attack(player)
-    player.receive_damage
-    @hp = player.hit_points
-    puts @hp
-    if @hp <= 0 then @end = true end
+    player.receive_damage(player.calculate_damage)
+    hp = player.hit_points
+    if hp <= 0 then @end = true end
     @turn_controller.turn = !@turn_controller.turn
   end
 

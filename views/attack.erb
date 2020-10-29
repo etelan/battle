@@ -12,6 +12,10 @@
 
     margin: auto;
   }
+
+  .crit {
+    background-color: yellow
+  }
 </style>
 
 <div class="center">
@@ -34,7 +38,12 @@
   </h1>
 
   <!-- Display Damage -->
-  <h2 style="text-align:center"> <%=@amount %> DMG</h2>
+  <h2 style="text-align:center"> <%=@amount %> DMG Total</h2>
+
+  <div class="crit">
+    <h2 style="text-align:center"> <%= if @amount > 10 then "Critical!" end %>
+    <h3 style="text-align:center"> <%= if @amount > 10 then "10 + #{@amount - 10}" end %>
+  </div>
 
   <form action="/play" style="text-align:center">
     <input type="submit" value="Return To Game">
